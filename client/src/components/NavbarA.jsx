@@ -40,8 +40,9 @@ export default function Simple() {
       <Box
         bg={useColorModeValue("#fff8f1", "gray.900")}
         px={4}
-        marginBottom="40px"
-        position={"sticky"}
+        position={"fixed"}
+        width="100%"
+        draggable
       >
         <Flex
           className="media"
@@ -85,6 +86,7 @@ export default function Simple() {
               width={"200px"}
               borderRadius={"15"}
               size={"md"}
+              _hover={{ background: "red" }}
               bg={"#fa5d00"}
             >
               Try Harvest Free
