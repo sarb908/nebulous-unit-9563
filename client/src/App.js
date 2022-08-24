@@ -1,11 +1,12 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
+import NavbarA from "./components/NavbarA";
+import NavbarB from "./components/NavbarB";
 import MainRoutes from "./pages/MainRoutes";
 
 function App() {
   return (
     <>
-      <Navbar />
+      <NavbarA />
       <MainRoutes />
     </>
   );
