@@ -10,6 +10,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/", authRouter);
+
+
 app.listen(process.env.PORT || 8080, async () => {
   try {
     await connection;
