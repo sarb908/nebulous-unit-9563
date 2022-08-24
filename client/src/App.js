@@ -1,13 +1,15 @@
+import { Box } from "@chakra-ui/react";
 import "./App.css";
-import Navbar from "./components/Navbar";
+import NavbarA from "./components/NavbarA";
 import MainRoutes from "./pages/MainRoutes";
-
+import NavbarB from "./components/NavbarB"
 function App() {
   return (
-    <>
-      <Navbar />
+    <Box bg={"#fff8f1"}>
+      <NavbarA />
+      {/* <NavbarB/> */}
       <MainRoutes />
-    </>
+    </Box>
   );
 }
 

@@ -2,7 +2,11 @@ const express = require("express");
 
 const connection = require("./config");
 const authRouter = require("./controllers/authController");
-const passport = require("./googleAuth");
+
+
+const expensesRouter = require("./controllers/expenses.routes");
+
+
 const app = express();
 app.use(express.json());
 app.get("/", (req, res) => {
@@ -11,7 +15,11 @@ app.get("/", (req, res) => {
 
 app.use("/", authRouter);
 
-app.listen(process.env.PORT || 7000, async () => {
+
+
+
+app.listen(process.env.PORT || 8080, async () => {
+
   try {
     await connection;
     console.log("database connected");
@@ -20,3 +28,5 @@ app.listen(process.env.PORT || 7000, async () => {
   }
   console.log("listening");
 });
+
+
