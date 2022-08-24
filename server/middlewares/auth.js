@@ -67,3 +67,23 @@ const authentication = async (req, res, next) => {
 //const authorisation = async () => {};
 
 module.exports = { login, signup, authentication };
+// app.get(
+//   "/auth/google",
+//   passport.authenticate("google", { scope: ["profile", "email"] })
+// );
+
+// app.get(
+//   "/auth/google/callback",
+//   passport.authenticate("google", {
+//     failureRedirect: "/login",
+//     session: false,
+//   }),
+//   function (req, res) {
+//     // Successful authentication, redirect home.
+//     //console.log(req.user);
+//     res.redirect("/dashboard");
+//   }
+// );
+// app.get("/dashboard", (req, res) => {
+//   res.send("COOL");
+// });
