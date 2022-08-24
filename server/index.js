@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
 
 app.use("/", authRouter);
 
-app.use("/expenses", expensesRouter);
+
 
 app.listen(process.env.PORT || 8080, async () => {
   try {
