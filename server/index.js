@@ -11,27 +11,6 @@ app.get("/", (req, res) => {
 
 app.use("/", authRouter);
 
-app.get(
-  "/auth/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
-);
-
-app.get(
-  "/auth/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "/login",
-    session: false,
-  }),
-  function (req, res) {
-    // Successful authentication, redirect home.
-    //console.log(req.user);
-    res.redirect("/dashboard");
-  }
-);
-app.get("/dashboard", (req, res) => {
-  res.send("COOL");
-});
-
 app.listen(process.env.PORT || 7000, async () => {
   try {
     await connection;
