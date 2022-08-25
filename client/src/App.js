@@ -9,6 +9,7 @@ function App() {
       <NavbarA />
       {/* <NavbarB/> */}
       <MainRoutes />
+
     </Box>
   );
 }
