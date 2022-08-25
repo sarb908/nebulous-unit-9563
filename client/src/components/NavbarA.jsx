@@ -1,17 +1,10 @@
-import { ReactNode } from "react";
 import {
   Box,
   Flex,
-  Avatar,
   HStack,
   Link,
   IconButton,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useDisclosure,
   useColorModeValue,
   Stack,
@@ -19,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import { Tabs, TabList, Tab } from "@chakra-ui/react";
 const Links = [
   "Why Harvest?",
   "Features",
@@ -38,6 +31,14 @@ export default function Simple() {
   return (
     <>
       <Box
+      color={{base:"#fa5d00"}}
+        bgColor={{
+          base: "#fff8f1",
+          sm: "black",
+          md: "black",
+          lg: "#fff8f1",
+          xl: "#fff8f1",
+        }}
         bg={useColorModeValue("#fff8f1", "gray.900")}
         px={4}
         position={"fixed"}
@@ -65,12 +66,9 @@ export default function Simple() {
               spacing={4}
               display={{ base: "none", md: "flex" }}
             >
-              {/* {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))} */}
               <Tabs variant={"enclosed"}>
                 <TabList>
-                  <Tab onClick={() => goto("")}>{Links[0]}</Tab>
+                  <Tab onClick={() => goto("/whyharvest")}>{Links[0]}</Tab>
                   <Tab onClick={() => goto("")}>{Links[1]}</Tab>
                   <Tab onClick={() => goto("")}>{Links[2]}</Tab>
                   <Tab onClick={() => goto("")}>{Links[3]}</Tab>
@@ -82,8 +80,14 @@ export default function Simple() {
           <HStack>
             <Link>Signup</Link>
             <Button
+              width={{
+                base: "200px",
+                sm: "150px",
+                md: "150px",
+                lg: "200px",
+                xl: "200px",
+              }}
               color={"white"}
-              width={"200px"}
               borderRadius={"15"}
               size={"md"}
               _hover={{ background: "red" }}
@@ -108,7 +112,7 @@ export default function Simple() {
                 <NavLink key={link}>{link}</NavLink>
               ))} */}
 
-              <RouterLink to="">{Links[0]}</RouterLink>
+              <RouterLink to="/whyharvest">{Links[0]}</RouterLink>
               <RouterLink to={""}>{Links[1]}</RouterLink>
               <RouterLink to={""}>{Links[2]}</RouterLink>
               <RouterLink to={""}>{Links[3]}</RouterLink>

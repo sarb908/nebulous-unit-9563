@@ -1,4 +1,11 @@
-import { Box, Button, Divider, Image, SimpleGrid, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Divider,
+  Image,
+  SimpleGrid,
+  Text,
+} from "@chakra-ui/react";
 import React, { useState } from "react";
 import style from "./customer.module.css";
 
@@ -24,7 +31,7 @@ const Customer = () => {
           time.
         </Text>
       </SimpleGrid>
-      {/* box-shadow: ; */}
+
       <SimpleGrid
         margin={"auto"}
         gap={"20px"}
@@ -33,6 +40,7 @@ const Customer = () => {
       >
         <Box
           border={"1px solid red"}
+          padding="10px"
           _hover={{
             cursor: "pointer",
             border: "0",
@@ -57,6 +65,7 @@ const Customer = () => {
         </Box>
         <Box
           border={"1px solid red"}
+          padding="10px"
           _hover={{
             cursor: "pointer",
             border: "0",
@@ -80,6 +89,7 @@ const Customer = () => {
         </Box>
         <Box
           border={"1px solid red"}
+          padding="10px"
           _hover={{
             cursor: "pointer",
             border: "0",
@@ -103,6 +113,7 @@ const Customer = () => {
         </Box>
         <Box
           border={"1px solid red"}
+          padding="10px"
           _hover={{
             cursor: "pointer",
             border: "0",
