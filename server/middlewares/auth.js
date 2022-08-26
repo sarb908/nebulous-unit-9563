@@ -32,7 +32,7 @@ const login = async (req, res) => {
 
     bcrypt.compare(pswd, user.pswd, async function (err, result) {
       if (err || !result) {
-        return res.status(400).send("try again");
+        return res.status(400).send("SignUp Again");
       }
       jwt.sign(
         { _id: user._id, email: user.email },
@@ -67,23 +67,3 @@ const authentication = async (req, res, next) => {
 //const authorisation = async () => {};
 
 module.exports = { login, signup, authentication };
-// app.get(
-//   "/auth/google",
-//   passport.authenticate("google", { scope: ["profile", "email"] })
-// );
-
-// app.get(
-//   "/auth/google/callback",
-//   passport.authenticate("google", {
-//     failureRedirect: "/login",
-//     session: false,
-//   }),
-//   function (req, res) {
-//     // Successful authentication, redirect home.
-//     //console.log(req.user);
-//     res.redirect("/dashboard");
-//   }
-// );
-// app.get("/dashboard", (req, res) => {
-//   res.send("COOL");
-// });

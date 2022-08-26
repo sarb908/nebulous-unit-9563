@@ -11,34 +11,49 @@ passport.use(
       callbackURL: "http://localhost:7000/auth/google/callback",
     },
     async function (accessToken, refreshToken, profile, cb) {
-      //   User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      //     return cb(err, user);
-      //   });
-      //   const user = await UserModel.findOne({ email: profile._json.email });
+      // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      //   return cb(err, user);
+      // });
+      console.log("emailGoodle", profile._json.email);
+      const user = await UserModel.findOne({ email: profile._json.email });
 
-      //   console.log(user);
-      //   if (user) {
-      //     jwt.sign(
-      //       { _id: user._id, email: user.email },
-      //       "shh",
-      //       function (err, token) {
-      //         if (err) {
-      //           return res.status(400).send("try again");
-      //         }
-      //         console.log(token);
-      //         //  return res.send({ token });
-      //         return cb(null, profile._json);
-      //       }
-      //     );
-      //     // console.log(token);
-      //     //  console.log(profile._json);
-      //   } else {
-      //     const newUser = UserModel.create({
-      //       email: profile._json,
-      //       pswd: Math.random * 1000,
-      //     });
-      //     console.log(newUser);
-      return cb(null, profile._json);
+      console.log("mongoUser", user);
+      if (user) {
+        jwt.sign(
+          { _id: user._id, email: user.email },
+          "shh",
+          function (err, token) {
+            if (err) {
+              return res.status(400).send("try again");
+            }
+            console.log(token);
+            //  return res.send({ token });
+            return cb(null, { img: profile._json.picture, token });
+          }
+        );
+        // console.log(token);
+        //  console.log(profile._json);
+      } else {
+        const newUser = await UserModel.create({
+          email: profile._json.email,
+          pswd: Math.random() * 1000 + "xyz",
+        });
+
+        // console.log(newUser);
+        jwt.sign(
+          { _id: newUser._id, email: newUser.email },
+          "shh",
+          function (err, token) {
+            if (err) {
+              return res.status(400).send("try again");
+            }
+            //    console.log(token);
+            //  return res.send({ token });
+            return cb(null, { img: profile._json.picture, token });
+          }
+        );
+        // return cb(null, profile._json);
+      }
     }
   )
 );
