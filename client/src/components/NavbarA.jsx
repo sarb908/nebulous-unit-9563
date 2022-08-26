@@ -1,17 +1,10 @@
-import { ReactNode } from "react";
 import {
   Box,
   Flex,
-  Avatar,
   HStack,
   Link,
   IconButton,
   Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
   useDisclosure,
   useColorModeValue,
   Stack,
@@ -19,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import { Tabs, TabList, Tab } from "@chakra-ui/react";
 const Links = [
   "Why Harvest?",
   "Features",
@@ -38,10 +31,19 @@ export default function Simple() {
   return (
     <>
       <Box
+        color={{ base: "#fa5d00" }}
+        bgColor={{
+          base: "#fff8f1",
+          sm: "#fff8f1",
+          md: "#fff8f1",
+          lg: "#fff8f1",
+          xl: "#fff8f1",
+        }}
         bg={useColorModeValue("#fff8f1", "gray.900")}
         px={4}
         position={"fixed"}
         width="100%"
+        padding={"10px"}
         draggable
       >
         <Flex
@@ -56,7 +58,7 @@ export default function Simple() {
             justifyContent="space-between"
           >
             <Box className="text" cursor={"pointer"}>
-              <Text color={"#fa5d00"} fontSize="5xl">
+              <Text onClick={() => goto("/")} color={"#fa5d00"} fontSize="5xl">
                 Harvest
               </Text>
             </Box>
@@ -65,25 +67,38 @@ export default function Simple() {
               spacing={4}
               display={{ base: "none", md: "flex" }}
             >
-              {/* {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
-              ))} */}
               <Tabs variant={"enclosed"}>
                 <TabList>
-                  <Tab onClick={() => goto("")}>{Links[0]}</Tab>
-                  <Tab onClick={() => goto("")}>{Links[1]}</Tab>
-                  <Tab onClick={() => goto("")}>{Links[2]}</Tab>
-                  <Tab onClick={() => goto("")}>{Links[3]}</Tab>
-                  <Tab onClick={() => goto("")}>{Links[4]}</Tab>
+                  <Tab fontSize={"2xl"} onClick={() => goto("/whyharvest")}>
+                    {Links[0]}
+                  </Tab>
+                  <Tab fontSize={"2xl"} onClick={() => goto("/feature")}>
+                    {Links[1]}
+                  </Tab>
+                  <Tab fontSize={"2xl"} onClick={() => goto("")}>
+                    {Links[2]}
+                  </Tab>
+                  <Tab fontSize={"2xl"} onClick={() => goto("")}>
+                    {Links[3]}
+                  </Tab>
+                  <Tab fontSize={"2xl"} onClick={() => goto("/price")}>
+                    {Links[4]}
+                  </Tab>
                 </TabList>
               </Tabs>
             </HStack>
           </HStack>
           <HStack>
-            <Link>Signup</Link>
+            <Link fontSize={"2xl"}>Signup</Link>
             <Button
+              width={{
+                base: "200px",
+                sm: "150px",
+                md: "150px",
+                lg: "200px",
+                xl: "200px",
+              }}
               color={"white"}
-              width={"200px"}
               borderRadius={"15"}
               size={"md"}
               _hover={{ background: "red" }}
@@ -108,11 +123,11 @@ export default function Simple() {
                 <NavLink key={link}>{link}</NavLink>
               ))} */}
 
-              <RouterLink to="">{Links[0]}</RouterLink>
-              <RouterLink to={""}>{Links[1]}</RouterLink>
+              <RouterLink to="/whyharvest">{Links[0]}</RouterLink>
+              <RouterLink to={"/feature"}>{Links[1]}</RouterLink>
               <RouterLink to={""}>{Links[2]}</RouterLink>
               <RouterLink to={""}>{Links[3]}</RouterLink>
-              <RouterLink to={""}>{Links[4]}</RouterLink>
+              <RouterLink to={"/price"}>{Links[4]}</RouterLink>
             </Stack>
           </Box>
         ) : null}
