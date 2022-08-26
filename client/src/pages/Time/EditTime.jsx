@@ -1,16 +1,15 @@
 // import React, { useState, useEffect } from 'react'
-// // import { useParams } from 'react-router-dom';
-// // import { useHistory } from 'react-router-dom';
-// // import Wrapper from './Wrapper'
+
 
 // function ProductEdit(props) {
 //     console.log(props)
+    
 //     const [task, settask] = useState("");
 //     const [time, setTime] = useState(0);
 //     const [projectManagement, setProjectManagement] = useState('');
 //     const [notes, setNotes] = useState('');
   
-//     // const params = useParams()
+
 
 
 
@@ -19,12 +18,13 @@
 //         fetch(`http://localhost:8800/api/products/${props.id}`)
 //         .then(res => res.json())
 //         .then(product => {
+
 //             settask(product.task);
 //             setTime(product.time);
 //             setProjectManagement(product.projectManagement);
 //           setNotes(product.notes);
 //         })          
-//         // eslint-disable-next-line
+       
 //       }, [])
 
 //     const submit = (e) => {
@@ -65,6 +65,7 @@
 //                 />
 //                 <button type="submit">Save</button>
 //             </form>
+            
 //         </div>
 //     )
 // }
