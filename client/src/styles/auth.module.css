@@ -12,6 +12,9 @@
 .singinForm {
   padding-top: 8%;
   background-color: #eeeeee;
+  display: flex;
+  align-items: "center";
+  justify-content: "center";
   height: 100vh;
 }
 

@@ -20,6 +20,18 @@ app.get(
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
+// app.get(
+//   "/auth/google/callback",
+//   passport.authenticate("google", {
+//     failureRedirect: "/login",
+//     session: false,
+//   }),
+//   function (req, res) {
+//     // Successful authentication, redirect home.
+//     //console.log(req.user);
+//     res.send(req.user);
+//   }
+// );
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
@@ -28,14 +40,17 @@ app.get(
   }),
   function (req, res) {
     // Successful authentication, redirect home.
-    //console.log(req.user);
-    res.send(req.user);
+    res.redirect("/dashboard");
   }
 );
 
+app.get("/dashboard", (req, res) => {
+  console.log(req.url);
+  res.send(req?.user);
+});
 ////////
 
-app.listen(process.env.PORT || 7000, async () => {
+app.listen(process.env.PORT || 8080, async () => {
   try {
     await connection;
     console.log("database connected");

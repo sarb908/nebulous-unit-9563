@@ -1,9 +1,9 @@
 import { FcGoogle } from "react-icons/fc";
 import { Button, Center, Text } from "@chakra-ui/react";
 
-export default function GoogleButton() {
+export default function GoogleButton(props) {
   return (
-    <Center p={8}>
+    <Center p={8} onClick={props.onClick}>
       <Button
         w={"full"}
         maxW={"md"}

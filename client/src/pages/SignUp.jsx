@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import style from "./../styles/auth.module.css";
-
+import * as types from "./../redux/authReducer/actionTypes";
+import { useToast } from "@chakra-ui/react";
+import { signupHandler } from "../redux/authReducer/actions";
 const Section = styled.section`
   background-color: #f26314;
   height: 170px;
@@ -29,6 +32,8 @@ const Button = styled.button`
 `;
 
 export default function Signup() {
+  const toast = useToast();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [inp, setInp] = useState({});
 
@@ -41,7 +46,44 @@ export default function Signup() {
     setInp(payload);
   };
   const submitSignUp = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
+    if (!inp.email || !inp.pswd || !inp.name || !inp.company) {
+      toast({
+        title: `invalid cred`,
+        status: "error",
+        isClosable: true,
+      });
+      return;
+    }
+    if (!inp.email.includes("@")) {
+      toast({
+        title: `email is not valid`,
+        status: "error",
+        isClosable: true,
+      });
+      return;
+    }
+    if (inp.pswd.length < 5) {
+      toast({
+        title: `password length is too small`,
+        status: "error",
+        isClosable: true,
+      });
+      return;
+    }
+    dispatch(signupHandler(inp)).then((r) => {
+      // console.log(r);
+      if (r.type === types.SIGNUP_SUCCESS) {
+        toast({
+          title: `SignUp Success`,
+          status: "success",
+          isClosable: true,
+        });
+        navigate("/login");
+        return;
+      }
+    });
+    //  console.log(inp);
   };
 
   return (
@@ -66,7 +108,7 @@ export default function Signup() {
                   <label>Name</label>
                 </td>
                 <td>
-                  <input name="fname" onChange={handleInp} />
+                  <input name="name" onChange={handleInp} />
                 </td>
               </tr>
 
@@ -75,7 +117,7 @@ export default function Signup() {
                   <label>Company Name</label>
                 </td>
                 <td>
-                  <input name="cname" onChange={handleInp} />
+                  <input name="company" onChange={handleInp} />
                 </td>
               </tr>
               <tr>
@@ -83,7 +125,7 @@ export default function Signup() {
                   <label>Work Email</label>
                 </td>
                 <td>
-                  <input name="wemail" onChange={handleInp} />
+                  <input name="email" onChange={handleInp} />
                 </td>
               </tr>
               <tr>
@@ -91,7 +133,7 @@ export default function Signup() {
                   <label>Password</label>
                 </td>
                 <td>
-                  <input name="password" onChange={handleInp} />
+                  <input name="pswd" type="password" onChange={handleInp} />
                 </td>
               </tr>
               <tr>
