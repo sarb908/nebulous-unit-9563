@@ -20,7 +20,6 @@ const Part1 = () => {
                 fontSize="5xl"
                 fontFamily={"moutoweb sans-serif"}
                 textAlign={"center"}
-                fontSize={"5xl"}
               >
                 Help your team spend time wisely
               </Text>
