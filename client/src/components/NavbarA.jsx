@@ -31,7 +31,7 @@ export default function Simple() {
   return (
     <>
       <Box
-      color={{base:"#fa5d00"}}
+        color={{ base: "#fa5d00" }}
         bgColor={{
           base: "#fff8f1",
           sm: "black",
@@ -78,23 +78,27 @@ export default function Simple() {
             </HStack>
           </HStack>
           <HStack>
-            <Link>Signup</Link>
-            <Button
-              width={{
-                base: "200px",
-                sm: "150px",
-                md: "150px",
-                lg: "200px",
-                xl: "200px",
-              }}
-              color={"white"}
-              borderRadius={"15"}
-              size={"md"}
-              _hover={{ background: "red" }}
-              bg={"#fa5d00"}
-            >
-              Try Harvest Free
-            </Button>
+            <RouterLink to="/login">
+              <Link>Signup</Link>
+            </RouterLink>
+            <RouterLink to="/signup">
+              <Button
+                width={{
+                  base: "200px",
+                  sm: "150px",
+                  md: "150px",
+                  lg: "200px",
+                  xl: "200px",
+                }}
+                color={"white"}
+                borderRadius={"15"}
+                size={"md"}
+                _hover={{ background: "red" }}
+                bg={"#fa5d00"}
+              >
+                Try Harvest Free
+              </Button>
+            </RouterLink>
           </HStack>
           <IconButton
             size={"lg"}
