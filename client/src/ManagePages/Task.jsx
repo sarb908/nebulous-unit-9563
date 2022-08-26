@@ -11,6 +11,7 @@ import {
   ModalBody,
   ModalCloseButton,
 } from '@chakra-ui/react'
+import { useState } from 'react'
 const Task = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -18,10 +19,29 @@ const Task = () => {
   const initialRef = React.useRef(null)
   const finalRef = React.useRef(null)
 
+  const [task_name , setTask_name]  = useState("")
+  const [rate , setRate]  = useState("")
 
+  const [task , setTask] = useState([])
 
-  const addtask = () =>{
-    
+  const addtask = async () =>{
+    const payload = {
+      task_name,
+      rate
+    }
+
+    await fetch(`http://localhost:8080/manage/task/new` ,{
+      method : "POST",
+      body : JSON.stringify(payload),
+      headers :{
+        'Content-Type' :'application/json',
+        'token' : `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzA3YjlkY2E5NzdkOTBmY2Y4MGVkMDEiLCJlbWFpbCI6Im1hc2FpQGdtYWlsLmNvbSIsImlhdCI6MTY2MTQ1MDc3Mn0.hSuzNiQn0XwvC19JEVzM_r1tHvO4G1C1qMZpsPIg5tI`
+      }
+    })
+    .then((res) => res.json)
+    .then((res) => {
+      console.log(res)
+    })
   }
 
 
@@ -49,12 +69,12 @@ const Task = () => {
                   <ModalBody pb={6}>
                     <FormControl>
                       <FormLabel>Task Name</FormLabel>
-                      <Input ref={initialRef} />
+                      <Input ref={initialRef} value={task_name} onChange={(e)=>setTask_name(e.target.value) } />
                     </FormControl>
 
                     <FormControl mt={4}>
                       <FormLabel>Default billable rate</FormLabel>
-                      <Input width='100px'/>
+                      <Input width='100px' value={rate} onChange={(e)=>setRate(e.target.value) }/>
                     </FormControl>
                   </ModalBody>
 
