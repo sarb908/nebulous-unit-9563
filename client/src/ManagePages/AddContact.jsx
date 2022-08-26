@@ -1,8 +1,9 @@
+import { Box, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const AddContact = () => {
   return (
-    <div>AddContact</div>
+    <Box></Box>
   )
 }
 

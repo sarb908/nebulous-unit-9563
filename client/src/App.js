@@ -3,13 +3,15 @@ import "./App.css";
 import NavbarA from "./components/NavbarA";
 import MainRoutes from "./pages/MainRoutes";
 import NavbarB from "./components/NavbarB"
+import Manage from "./pages/Manage";
 function App() {
   return (
-    <Box bg={"#fff8f1"}>
+    <Box >
       <NavbarA />
       {/* <NavbarB/> */}
       <MainRoutes />
 
+      {/* <Manage /> */}
     </Box>
   );
 }
