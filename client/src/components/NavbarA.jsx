@@ -31,11 +31,11 @@ export default function Simple() {
   return (
     <>
       <Box
-      color={{base:"#fa5d00"}}
+        color={{ base: "#fa5d00" }}
         bgColor={{
           base: "#fff8f1",
-          sm: "black",
-          md: "black",
+          sm: "#fff8f1",
+          md: "#fff8f1",
           lg: "#fff8f1",
           xl: "#fff8f1",
         }}
@@ -43,6 +43,7 @@ export default function Simple() {
         px={4}
         position={"fixed"}
         width="100%"
+        padding={"10px"}
         draggable
       >
         <Flex
@@ -57,7 +58,7 @@ export default function Simple() {
             justifyContent="space-between"
           >
             <Box className="text" cursor={"pointer"}>
-              <Text color={"#fa5d00"} fontSize="5xl">
+              <Text onClick={() => goto("/")} color={"#fa5d00"} fontSize="5xl">
                 Harvest
               </Text>
             </Box>
@@ -68,17 +69,27 @@ export default function Simple() {
             >
               <Tabs variant={"enclosed"}>
                 <TabList>
-                  <Tab onClick={() => goto("/whyharvest")}>{Links[0]}</Tab>
-                  <Tab onClick={() => goto("")}>{Links[1]}</Tab>
-                  <Tab onClick={() => goto("")}>{Links[2]}</Tab>
-                  <Tab onClick={() => goto("")}>{Links[3]}</Tab>
-                  <Tab onClick={() => goto("")}>{Links[4]}</Tab>
+                  <Tab fontSize={"2xl"} onClick={() => goto("/whyharvest")}>
+                    {Links[0]}
+                  </Tab>
+                  <Tab fontSize={"2xl"} onClick={() => goto("/feature")}>
+                    {Links[1]}
+                  </Tab>
+                  <Tab fontSize={"2xl"} onClick={() => goto("")}>
+                    {Links[2]}
+                  </Tab>
+                  <Tab fontSize={"2xl"} onClick={() => goto("")}>
+                    {Links[3]}
+                  </Tab>
+                  <Tab fontSize={"2xl"} onClick={() => goto("/price")}>
+                    {Links[4]}
+                  </Tab>
                 </TabList>
               </Tabs>
             </HStack>
           </HStack>
           <HStack>
-            <Link>Signup</Link>
+            <Link fontSize={"2xl"}>Signup</Link>
             <Button
               width={{
                 base: "200px",
@@ -113,10 +124,10 @@ export default function Simple() {
               ))} */}
 
               <RouterLink to="/whyharvest">{Links[0]}</RouterLink>
-              <RouterLink to={""}>{Links[1]}</RouterLink>
+              <RouterLink to={"/feature"}>{Links[1]}</RouterLink>
               <RouterLink to={""}>{Links[2]}</RouterLink>
               <RouterLink to={""}>{Links[3]}</RouterLink>
-              <RouterLink to={""}>{Links[4]}</RouterLink>
+              <RouterLink to={"/price"}>{Links[4]}</RouterLink>
             </Stack>
           </Box>
         ) : null}
