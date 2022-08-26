@@ -36,16 +36,6 @@ const Client = () => {
     getClients()
   },[])
 
-  // const deleteClient = async () =>{
-
-  //   await fetch(`http://localhost:8080/manage/client/` ,{
-  //     method : "GET" ,
-  //     headers :{
-  //       'Content-Type' :'application/json',
-  //       'token' : `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzA3YjlkY2E5NzdkOTBmY2Y4MGVkMDEiLCJlbWFpbCI6Im1hc2FpQGdtYWlsLmNvbSIsImlhdCI6MTY2MTQ1MDc3Mn0.hSuzNiQn0XwvC19JEVzM_r1tHvO4G1C1qMZpsPIg5tI`
-  //     }
-  //   })
-  // }
 
   return (
   <Box style={{width:'50%', margin:'auto'}}>
