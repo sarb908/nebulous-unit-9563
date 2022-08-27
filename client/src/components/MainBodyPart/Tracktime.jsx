@@ -8,7 +8,7 @@ const Tracktime = () => {
     navigate(link);
   };
   return (
-    <Box bgColor={"white"} draggable>
+    <Box bgColor={"white"} >
       <SimpleGrid
         columns={{ base: 2, sm: 1, md: 1, lg: 2, xl: 2 }}
         width={{ base: "100%", sm: "90%", md: "90%", lg: "80%", xl: "80%" }}

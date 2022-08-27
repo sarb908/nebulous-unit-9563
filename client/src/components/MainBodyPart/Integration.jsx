@@ -3,7 +3,7 @@ import React from "react";
 
 const Integration = () => {
   return (
-    <Box marginTop={"60px"} draggable>
+    <Box marginTop={"60px"} >
       <SimpleGrid
         margin={"auto"}
         width={{ base: "100%", sm: "90%", md: "90%", lg: "80%", xl: "80%" }}

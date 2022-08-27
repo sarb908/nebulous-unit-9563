@@ -11,7 +11,7 @@ import style from "./customer.module.css";
 
 const Customer = () => {
   return (
-    <Box draggable>
+    <Box >
       <SimpleGrid
         margin={"auto"}
         width={{ base: "100%", sm: "90%", md: "90%", lg: "80%", xl: "80%" }}

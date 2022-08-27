@@ -11,7 +11,7 @@ import React from "react";
 const GetStart = () => {
   return (
     <>
-      <Box bg="#fff8f1" marginTop={"40px"} draggable>
+      <Box bg="#fff8f1" marginTop={"40px"}>
         <Text fontSize={"4xl"} textAlign={"center"}>
           Getting Started
         </Text>

@@ -1,8 +1,10 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import Customer from "./Customer";
 import Features from "./Features";
 // import Features from "./Features";
 import Home from "./Home";
+import Integration from "./Integration";
 import Login from "./Login";
 import Pricing from "./Pricing";
 import SignUp from "./SignUp";
@@ -16,6 +18,8 @@ const MainRoutes = () => {
       <Route path="/whyharvest" element={<WhyHarvest />} />
       <Route path="/price" element={<Pricing />} />
       <Route path="/feature" element={<Features />} />
+      <Route path="/customer" element={<Customer />} />
+      <Route path="/integration" element={<Integration />} />
     </Routes>
   );
 };
