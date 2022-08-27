@@ -30,6 +30,7 @@ import Role from "../ManagePages/Role";
 import Task from "../ManagePages/Task";
 import Expence_categ from "../ManagePages/Expence_categ";
 import Manage from "./Manage";
+import { Expenses } from "../components/Expenses/Expenses";
 const MainRoutes = () => {
   return (
     <Routes>
@@ -42,6 +43,12 @@ const MainRoutes = () => {
       <Route path='/time'   element={<Products/>} />
              <Route path='/time/create'   element={<Create/>} />
              <Route path='/time/:id/edit'   element={<Edit/>} />
+
+      <Route path="/whyharvest" element={<WhyHarvest />} />
+
+      <Route path='/expenses'   element={<Expenses/>} />
+             <Route path='/expenses'   element={<Expenses/>} />
+             <Route path='/expenses/:id'   element={<Expenses/>} />
 
       <Route path="/whyharvest" element={<WhyHarvest />} />
 
