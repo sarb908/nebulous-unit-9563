@@ -1,48 +1,48 @@
+import React from 'react'
 import {
-  Box,
-  Button,
-  Checkbox,
-  Image,
-  Img,
-  Input,
-  Select,
-  Stack,
-} from "@chakra-ui/react";
-import React, { useState } from "react";
-import { Form } from "./Form";
-import styles from "./Expenses.module.css";
-import { Table } from "./Table";
-import { Route, Routes } from "react-router-dom";
-import EditExpence from "./EditExpence";
+    Box,
+    Button,
+    Checkbox,
+    Image,
+    Img,
+    Input,
+    Select,
+    Stack,
+  } from "@chakra-ui/react";
+  import  { useState } from "react";
+  import { Form } from "./Form";
+  import styles from "./Expenses.module.css";
+  import { Table } from "./Table";
+  import { Route, Routes, useParams } from "react-router-dom";
+import { Expenses } from './Expenses';
 
-export const Expenses = () => {
-  const [div, SetDiv] = useState(false);
+
+const EditExpence = () => {
+
+    const [div, SetDiv] = useState(false);
   // console.log(div);
-  
-  const [projectname ,SetProject ]=useState("");
-  const [expensee,Setpu]=useState("");
+  const [pu,Setpu]=useState("");
+  const [Project ,SetProject ]=useState("");
   const [notes,SetNotes]=useState("")
   const [date,Setdate]=useState("");
   const [amount ,Setamount ]=useState(0);
-  const [table,setTable]=useState(false)
- 
-  // <Routes>
-  //   <Route path="expences/:id/edit" element={<EditExpence />} />
-  // </Routes>
 
+  const {id} = useParams()
+
+  console.log(id);
   const handleSubmit =async (e) => {
     e.preventDefault();
     const payload = {
-      projectname,
-      expensee,
+      Project,
+      pu,
       notes,
       amount,
       date
       
     }
    console.log(payload)
-    await fetch("http://localhost:8080/expenses" ,{
-      method :"POST",
+    await fetch(`http://localhost:8080/${id}` ,{
+      method :"PATCH",
       body : JSON.stringify(payload),
       headers :{
         "Content-Type" : 'application/json',
@@ -56,27 +56,23 @@ export const Expenses = () => {
 
 
 
-    SetDiv(false);
-    setTable(true)
+    SetDiv(false)
+}
 
-
-
-  };
+const deleteExpence =() =>{
+    fetch(`http://localhost:8080/${id}` ,{
+      method :"DELETE",
+      headers :{
+        "Content-Type" : 'application/json',
+      }
+    })
+    .then((res) =>window.location.reload(false))
+    .catch((err) =>console.log(err))
+}
   return (
     <div>
-      {/* <Routes>
-        <Route path="expences/:id/edit" element={<EditExpence />} />
-      </Routes> */}
-      <Box w="100%" p={4}>
-        <Box className={styles.main}>
-          <h1>Expenses</h1>
-
-          <Button onClick={() => SetDiv(true)} bg="green">
-            + Expenses
-          </Button>
-        </Box>
-        {div ? (
-          <Box className={styles.res}>
+      
+         <Box className={styles.res}>
             <Box className={styles.abc}>
               <Box className={styles.dleft}>
                 <h1>Date</h1>
@@ -85,7 +81,7 @@ export const Expenses = () => {
               </Box>
               <Box spacing={3}>
                 <h1>Project / Category</h1>
-                <form action="" onSubmit={handleSubmit}>
+                <form action="" >
                   <Select className={styles.sel} onChange={(e)=>SetProject (e.target.value)}>
                     <option value="Example Search">Example Search</option>
                     <option value="New Project">New Project</option>
@@ -118,8 +114,8 @@ export const Expenses = () => {
                     This expense is billable
                   </Checkbox>
                   <br />
-                  <Button type="submit" bg="green" color="white">
-                    Save expenses
+                  <Button  bg="green" color="white" onClick={handleSubmit}>
+                    Update expenses
                   </Button>
                   <Button
                     type="submit"
@@ -129,6 +125,7 @@ export const Expenses = () => {
                   >
                     cancel
                   </Button>
+                  <Button onClick={deleteExpence}>Delete</Button>
                 </form>
               </Box>
               <Box className={styles.rpay}>
@@ -137,32 +134,8 @@ export const Expenses = () => {
               </Box>
             </Box>
           </Box>
-        ) : null}
-        <Box>
-          {/* <Img src="https://cache.harvestapp.com/static/illustrations/expense_onboard-AAC9C67E.png"/> */}
-        </Box>
-      </Box>
-
-     
-
-{/* //table part*/}
-
- {table ? <Table/> :<Box className={styles.blanck}>
-        <Box className={styles.logos}>
-          <Box className={styles.imga}>
-            {" "}
-            <Image src="https://cache.harvestapp.com/static/illustrations/expense_onboard-AAC9C67E.png" />
-          </Box>
-          <h1>
-            Record those airline tickets, meals, miles, and other expenses in
-            Harvest <br />
-            so you can more accurately budget projects and invoice clients.
-          </h1>
-        </Box>
-      </Box> }
-
-
- {/* <Table/> */}
     </div>
-  );
-};
+  )
+}
+
+export default EditExpence

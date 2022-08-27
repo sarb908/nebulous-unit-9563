@@ -32,12 +32,12 @@ expensesRouter.get("/", async (req, res) => {
 //its time to edit
 
 expensesRouter.patch("/:id", async (req, res) => {
-  const new_expense = await ExpensesModel.findOneAndUpdate(
+  const new_expense = await ExpensesModel.findByIdAndUpdate(
     req.params.id,
     req.body,
     { new: true }
   );
-  return res.send({ message: "successfully updated", new_expense });
+  res.send({ message: "successfully updated", new_expense });
 });
 
 expensesRouter.delete("/:id", async (req, res) => {

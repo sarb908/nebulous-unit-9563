@@ -3,8 +3,9 @@ const express = require("express");
 const connection = require("./config");
 const authRouter = require("./controllers/authController");
 const expensesRouter = require("./controllers/expenses.routes");
-
+const cors = require('cors')
 const app = express();
+app.use(cors())
 app.use(express.json());
 app.get("/", (req, res) => {
   res.send("homepage");
