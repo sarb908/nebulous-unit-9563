@@ -18,15 +18,13 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
-
 import Edit from "../Time/EditTimer";
 import Create from "../Time/CreateTimer";
 import Timecounter from "../Time/TimeCounter";
 
-
 function Products() {
   const [products, setProducts] = useState([]);
-  const [value, setValue] = useState(0);
+
   let today = new Date().toISOString().slice(0, 10);
 
   console.log(today);
@@ -44,81 +42,11 @@ function Products() {
     setProducts(products.filter((p) => p._id !== id));
   };
 
-  const Monday = () => {
-    setValue(1);
-  };
-
-  const Tuesday = () => {
-    setValue(2);
-  };
-
-  const Thursday = () => {
-    setValue(3);
-  };
-  const Friday = () => {
-    setValue(4);
-  };
-  const WednesDay = () => {
-    setValue(7);
-  };
-  const Sunday = () => {
-    setValue(5);
-  };
-  const Saturday = () => {
-    setValue(6);
-  };
-
-  console.log(value);
-
-  if (value === 1) {
-    return (
-      <>
-        <h1>Hyy Dear </h1>
-      </>
-    );
-  } else if (value === 2) {
-    return (
-      <>
-        <h1>Hello 2</h1>
-      </>
-    );
-  } else if (value === 3) {
-    return (
-      <>
-        <h1>Hello 3</h1>
-      </>
-    );
-  } else if (value === 4) {
-    return (
-      <>
-        <h1>Hello 4</h1>
-      </>
-    );
-  } else if (value === 5) {
-    return (
-      <>
-        <h1>Hello 5</h1>
-      </>
-    );
-  } else if (value === 6) {
-    return (
-      <>
-        <h1>Hello 6</h1>
-      </>
-    );
-  } else if (value === 7) {
-    return (
-      <>
-        <h1>Hello 7</h1>
-      </>
-    );
-  }
-
   return (
     <Box style={{ marginLeft: "10px" }}>
       <Heading ml="145px" mt="20px" as="h4" size="lg" fontWeight="500">
         {" "}
-        Sauturday : {today}
+        Saturday : {today}
       </Heading>
       <Box
         style={{
@@ -129,32 +57,30 @@ function Products() {
         }}
       >
         {" "}
-        <Box onClick={Monday}>
+        <Box>
           <Button>Monday</Button>
         </Box>
-        <Box onClick={Thursday}>
+        <Box>
           <Button>Tuesday</Button>
         </Box>
-        <Box onClick={Tuesday}>
+        <Box>
           <Button>Tuesday</Button>
         </Box>
-        <Box onClick={WednesDay}>
+        <Box>
           <Button>WednesDay</Button>
         </Box>
-        <Box onClick={Friday}>
+        <Box>
           <Button>Friday</Button>
         </Box>
-        <Box onClick={Saturday}>
+        <Box>
           <Button>Saturday</Button>
         </Box>
-        <Box onClick={Sunday}>
+        <Box>
           <Button>Sunday</Button>
         </Box>
       </Box>
 
       <Box style={{ marginLeft: "10px", display: "flex" }}>
-   
-
         <Flex>
           <Create style={{ width: "10%" }} />
 

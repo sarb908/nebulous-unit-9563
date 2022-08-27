@@ -118,7 +118,7 @@ function Create(props) {
               <Input
                 name="title"
                 onChange={(e) => setProjectManagement(e.target.value)}
-                placeholder="Write Notes"
+                placeholder="project management"
               />
             </FormControl>
             <Flex>

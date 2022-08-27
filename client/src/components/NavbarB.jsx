@@ -71,14 +71,13 @@ export default function Simple() {
               })} */}
               <Tabs variant={"enclosed"}>
                 <TabList>
-                  <Tab onClick={() => goto("")}>{Links[0]}</Tab>
-                  <Tab onClick={() => goto("")}>{Links[1]}</Tab>
+                  <Tab onClick={() => goto("/manage/client")}>{Links[7]}</Tab>
+                  <Tab onClick={() => goto("/time")}>{Links[1]}</Tab>
                   <Tab onClick={() => goto("")}>{Links[2]}</Tab>
                   <Tab onClick={() => goto("")}>{Links[3]}</Tab>
                   <Tab onClick={() => goto("")}>{Links[4]}</Tab>
                   <Tab onClick={() => goto("")}>{Links[5]}</Tab>
                   <Tab onClick={() => goto("")}>{Links[6]}</Tab>
-                  <Tab onClick={() => goto("/manage/client")}>{Links[7]}</Tab>
                 </TabList>
               </Tabs>
             </HStack>
