@@ -78,7 +78,7 @@ export default function Simple() {
                   <Tab onClick={() => goto("")}>{Links[4]}</Tab>
                   <Tab onClick={() => goto("")}>{Links[5]}</Tab>
                   <Tab onClick={() => goto("")}>{Links[6]}</Tab>
-                  <Tab onClick={() => goto("")}>{Links[7]}</Tab>
+                  <Tab onClick={() => goto("/manage/client")}>{Links[7]}</Tab>
                 </TabList>
               </Tabs>
             </HStack>

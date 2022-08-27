@@ -7,7 +7,7 @@ const GoogleAuth = () => {
 
   useEffect(() => {
     alert("Login Successful");
-    window.location.href = "/";
+    window.location.href = "/manage/client";
   });
   console.log(token, img);
   localStorage.setItem("creds", JSON.stringify({ token, img }));
