@@ -6,10 +6,18 @@ const cors = require('cors')
 
 const connection = require("./config");
 const authRouter = require("./controllers/authController");
+
+
+
+
+const expensesRouter = require("./controllers/expenses.routes");
+const productRoutes = require("./middlewares/TimeManage");
+
 const passport = require("./googleauth");
 
 const expensesRouter = require("./controllers/expenses.routes");
 const manageRoute = require("./controllers/manageController");
+
 
 const app = express();
 app.use(express.json());
@@ -43,6 +51,8 @@ app.get(
 );
 
 ////////
+
+app.use("/time", productRoutes);
 
 
 

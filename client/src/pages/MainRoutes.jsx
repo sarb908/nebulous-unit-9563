@@ -10,6 +10,9 @@ import Home from "./Home";
 import Login from "./Login";
 import Pricing from "./Pricing";
 import SignUp from "./SignUp";
+import Create from "./Time/CreateTimer";
+import Edit from "./Time/EditTimer";
+import Products from "./Time/Timer";
 import WhyHarvest from "./WhyHarvest";
 
 import AddClient from "../ManagePages/AddClient";
@@ -26,6 +29,12 @@ const MainRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
+
+     
+      <Route path='/time'   element={<Products/>} />
+             <Route path='/time/create'   element={<Create/>} />
+             <Route path='/time/:id/edit'   element={<Edit/>} />
+
       <Route path="/whyharvest" element={<WhyHarvest />} />
 
       <Route path="/google/auth" element={<GoogleAuth />} />
@@ -96,6 +105,7 @@ const MainRoutes = () => {
           </div>
         }
       />
+
     </Routes>
   );
 };
