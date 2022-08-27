@@ -21,6 +21,7 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 const Links = [
   <AiOutlineHome />,
   "Time",
@@ -33,10 +34,16 @@ const Links = [
 ];
 
 export default function Simple() {
+  const auth = useSelector((state) => state.authReducer);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const navigate = useNavigate();
   const goto = (link) => {
     navigate(link);
+  };
+  const logoutHandler = () => {
+    console.log("kdsvks");
+    localStorage.removeItem("creds");
+    window.location.href = "/";
   };
   return (
     <>
@@ -71,24 +78,25 @@ export default function Simple() {
                   <Tab onClick={() => goto("")}>{Links[4]}</Tab>
                   <Tab onClick={() => goto("")}>{Links[5]}</Tab>
                   <Tab onClick={() => goto("")}>{Links[6]}</Tab>
-                  <Tab onClick={() => goto("")}>{Links[7]}</Tab>
+                  <Tab onClick={() => goto("/manage/client")}>{Links[7]}</Tab>
                 </TabList>
               </Tabs>
             </HStack>
           </HStack>
           <HStack>
-            <Text onClick={() => goto("")}>Setting</Text>
+            <Text color={"white"} cursor="pointer" onClick={logoutHandler}>
+              Logout
+            </Text>
             <Box>
               <Avatar
                 size={"sm"}
                 src={
-                  "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
+                  auth.isAuth
+                    ? auth?.img
+                    : "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
                 }
               />
             </Box>
-            <Text color={"white"} fontWeight="bold">
-              Harish
-            </Text>
           </HStack>
         </Flex>
 

@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Box, Heading, Input, Select, Text, Textarea } from "@chakra-ui/react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-const AddClient = () => {
+const EditClient = () => {
   const navigate = useNavigate();
   const token = useSelector((state) => state.authReducer.token);
   const [client_name, setClient] = useState("");
   const [address, setAddress] = useState("");
   const [currency, setCurr] = useState("");
 
-  const addclient = async () => {
+  const { id } = useParams();
+
+  console.log(id);
+
+  const handleUpdate = async () => {
     const payload = {
       client_name,
       address,
       currency,
     };
-    await fetch("http://localhost:8080/manage/client/new", {
-      method: "POST",
+    await fetch(`http://localhost:8080/manage/client/${id}/edit`, {
+      method: "PATCH",
       body: JSON.stringify(payload),
       headers: {
         "Content-Type": "application/json",
@@ -37,21 +39,30 @@ const AddClient = () => {
   const canceladd = () => {
     navigate("/manage/client");
   };
+
+  const deleteClient = async () => {
+    await fetch(`http://localhost:8080/manage/client/${id}/delete`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        token: `bearer ${token}`,
+      },
+    })
+      .then((res) => navigate("/manage/client"))
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
-    <Box style={{ width: "50%", margin: "auto", marginTop: "50px" }}>
+    <Box style={{ width: "70%", margin: "auto", marginTop: "50px" }}>
       <Box>
-        <Heading>New Client</Heading>
-        <Text>
-          Once you’ve added a client, you can add projects and contacts.
-        </Text>
+        <Heading>Edit Client</Heading>
       </Box>
       <Box>
         <hr />
       </Box>
       <Box display="flex" justifyContent="space-between" marginTop="50px">
-        <Text padding="5px" color="black" fontWeight="600">
-          Client Name
-        </Text>
+        <Text padding="5px">Client Name</Text>
         <Input
           width="70%"
           value={client_name}
@@ -59,9 +70,7 @@ const AddClient = () => {
         />
       </Box>
       <Box display="flex" justifyContent="space-between" marginTop="20px">
-        <Text padding="5px" color="black" fontWeight="600">
-          Address
-        </Text>
+        <Text padding="5px">Address</Text>
         <Textarea
           width="70%"
           value={address}
@@ -69,9 +78,7 @@ const AddClient = () => {
         ></Textarea>
       </Box>
       <Box display="flex" justifyContent="space-between" marginTop="20px">
-        <Text padding="5px" color="black" fontWeight="600">
-          Preferred currency
-        </Text>
+        <Text padding="5px">Preferred currency</Text>
         <Select
           width="70%"
           placeholder=" Choose Currency"
@@ -89,23 +96,35 @@ const AddClient = () => {
           <option value={"Canedian Dollar -CAD"}>Canedian Dollar -CAD</option>
         </Select>
       </Box>
-      <Box display="flex" justifyContent="center" marginTop="20px" gap="10px">
+      <Box display="flex" justifyContent="center" marginTop="20px" gap="20px">
         <button
           style={{
             background: "green",
             color: "white",
-            padding: "8px",
+            padding: "8px 12px",
             fontWeight: "bold",
             borderRadius: "10px",
           }}
-          onClick={addclient}
+          onClick={handleUpdate}
         >
           Save client
         </button>
         <button
           style={{
+            background: "red",
+            color: "white",
+            padding: "8px 12px",
+            fontWeight: "bold",
+            borderRadius: "10px",
+          }}
+          onClick={deleteClient}
+        >
+          Remove this Client
+        </button>
+        <button
+          style={{
             border: "1px solid",
-            padding: "8px",
+            padding: "8px 12px",
             fontWeight: "bold",
             borderRadius: "10px",
           }}
@@ -117,5 +136,4 @@ const AddClient = () => {
     </Box>
   );
 };
-
-export default AddClient;
+export default EditClient;
