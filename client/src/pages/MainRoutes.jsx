@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
+
 import Customer from "./Customer";
 
 
@@ -9,6 +10,7 @@ import GoogleAuth from "./GoogleAuth";
 
 import Features from "./Features";
 // import Features from "./Features";
+
 
 import Home from "./Home";
 import Integration from "./Integration";
@@ -31,9 +33,10 @@ import Manage from "./Manage";
 const MainRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      {/* <Route path="/" element={<Home />} /> */}
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
+
 
      
       <Route path='/time'   element={<Products/>} />

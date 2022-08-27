@@ -10,9 +10,12 @@ const productRoutes = require("./middlewares/TimeManage");
 const passport = require("./googleauth");
 
 const expensesRouter = require("./controllers/expenses.routes");
+
 const manageRoute = require("./controllers/manageController");
 
+
 const app = express();
+app.use(cors())
 app.use(express.json());
 app.use(cors());
 app.get("/", (req, res) => {
