@@ -1,5 +1,5 @@
 
-const Product = require("../models/timemodel");
+const Product = require("../models/TimeModel");
 
 // Get All products
 const product_all = async (req, res) => {

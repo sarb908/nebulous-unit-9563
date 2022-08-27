@@ -1,8 +1,8 @@
 
 const router = require("express").Router();
-const timeController = require('../controller/timeCotroller');
+const timeController = require('../controllers/TimeController');
 
-router.post("/", timeController.product_create);
+router.post("/create", timeController.product_create);
 router.get("/", timeController.product_all);
 router.get("/:timeId", timeController.product_details);
 router.put("/:timeId", timeController.product_update);
