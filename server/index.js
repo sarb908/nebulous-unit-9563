@@ -20,18 +20,6 @@ app.get(
   passport.authenticate("google", { scope: ["profile", "email"] })
 );
 
-// app.get(
-//   "/auth/google/callback",
-//   passport.authenticate("google", {
-//     failureRedirect: "/login",
-//     session: false,
-//   }),
-//   function (req, res) {
-//     // Successful authentication, redirect home.
-//     //console.log(req.user);
-//     res.send(req.user);
-//   }
-// );
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
@@ -40,14 +28,14 @@ app.get(
   }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.redirect("/dashboard");
+    //console.log(req.user);
+    //res.send(req.user);
+    res.redirect(
+      `http://localhost:3000/google/auth?token=${req.user.token}&img=${req.user.img}`
+    );
   }
 );
 
-app.get("/dashboard", (req, res) => {
-  console.log(req.url);
-  res.send(req?.user);
-});
 ////////
 
 app.listen(process.env.PORT || 8080, async () => {
