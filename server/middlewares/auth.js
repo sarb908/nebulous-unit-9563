@@ -32,7 +32,7 @@ const login = async (req, res) => {
 
     bcrypt.compare(pswd, user.pswd, async function (err, result) {
       if (err || !result) {
-        return res.status(400).send("try again");
+        return res.status(400).send("SignUp Again");
       }
       jwt.sign(
         { _id: user._id, email: user.email },
