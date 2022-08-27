@@ -117,12 +117,12 @@ const Task = () => {
                   <ModalCloseButton />
                   <ModalBody pb={6}>
                     <FormControl>
-                      <FormLabel>Task Name</FormLabel>
+                      <FormLabel color='black' fontWeight='600'>Task Name</FormLabel>
                       <Input ref={initialRef} value={task_name} onChange={(e)=>setTask_name(e.target.value) } />
                     </FormControl>
 
                     <FormControl mt={4}>
-                      <FormLabel>Default billable rate</FormLabel>
+                      <FormLabel color='black' fontWeight='600'>Default billable rate</FormLabel>
                       <Input width='100px' value={rate} onChange={(e)=>setRate(e.target.value) }/>
                     </FormControl>
                   </ModalBody>
@@ -176,9 +176,9 @@ const Task = () => {
             <Box key={item._id} border='1px solid grey' borderLeft='none' borderRight='none' height='50px' display='flex' justifyContent='space-between' marginTop ='20px' bg='#fff1cd'>
               
               <Box>
-                <Checkbox colorScheme='green'  padding='10px'>
+                <Text padding='10px' paddingLeft='25px' color='black' fontWeight='600'>
                   {item.task_name}
-                </Checkbox>
+                </Text>
               </Box>
               
               <Box display='flex' gap='20px' >
