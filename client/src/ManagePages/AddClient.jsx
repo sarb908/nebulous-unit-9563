@@ -53,15 +53,15 @@ const AddClient = () => {
         <hr />
       </Box>
       <Box display='flex' justifyContent='space-between' marginTop='50px'>
-        <Text padding='5px'>Client Name</Text>
+        <Text padding='5px' color='black' fontWeight='600'>Client Name</Text>
         <Input width='70%' value={client_name} onChange={(e) => setClient(e.target.value)}/>
       </Box>
       <Box display='flex' justifyContent='space-between' marginTop='20px'>
-        <Text padding='5px'>Address</Text>
+        <Text padding='5px' color='black' fontWeight='600'>Address</Text>
         <Textarea width='70%' value={address} onChange={(e) => setAddress(e.target.value)}></Textarea>
       </Box>
       <Box display='flex' justifyContent='space-between' marginTop='20px'>
-        <Text padding='5px'>Preferred currency</Text>
+        <Text padding='5px' color='black' fontWeight='600'>Preferred currency</Text>
         <Select width='70%'  placeholder=' Choose Currency' onChange={(e) => setCurr(e.target.value)}>
           <option value={'Euro - EUR'}>Euro - EUR</option>
           <option value={'United States Dollor - USD'}>United States Dollor - USD</option>
