@@ -7,6 +7,7 @@ import Expence_categ from '../ManagePages/Expence_categ'
 import ManageNavbar from '../ManagePages/ManageNavbar'
 import AddClient from '../ManagePages/AddClient'
 import AddContact from '../ManagePages/AddContact'
+import EditClient from '../ManagePages/EditClient'
 
 const Manage = () => {
   return (
@@ -19,6 +20,7 @@ const Manage = () => {
         <Route path='/role' element={<Role />}/>
         <Route path='/client/new' element={<AddClient />}/>
         <Route path='/contact/new' element={<AddContact />} />
+        <Route path='/client/:id/edit' element={<EditClient />} />
     </Routes>
     </>
   )

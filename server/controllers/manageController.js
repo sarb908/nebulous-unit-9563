@@ -1,8 +1,8 @@
 const express = require('express');
 
 
-
 const { ClientModel, TaskModel, ExpenseCategModel, RoleModel, ContactModel } = require('../models/Manage.model');
+
 
 
 const manageRoute = express.Router();
@@ -19,6 +19,8 @@ manageRoute.post("/client/new" ,async (req,res) =>{
     })
 
     client.save()
+
+    res.send({'msg':"Client created successfully" , client})
 })
 
 manageRoute.get("/client" , async (req,res) =>{
@@ -82,6 +84,8 @@ manageRoute.post("/contact/new" ,async (req,res) =>{
     })
 
     contact.save()
+
+    res.send({'msg': "contact created" , contact})
 })
 
 manageRoute.get("/contact" , async (req,res) =>{
@@ -105,7 +109,7 @@ manageRoute.patch("/contact/:contactId/edit" , async (req,res) =>{
     {
         const updated_contact = await ClientModel.findOneAndUpdate({_id : contactId},req.body,{new:true});
 
-        res.send(updated_contact)
+        res.send({'msg':"contact updated" ,updated_contact})
     }
     else{
         res.send("Not Authorized")
@@ -144,6 +148,8 @@ manageRoute.post("/task/new" ,async (req,res) =>{
     })
 
     task.save()
+
+    res.send({'msg': "task created" , task})
 })
 
 manageRoute.get("/task" , async (req,res) =>{
@@ -204,6 +210,8 @@ manageRoute.post("/expence_categ/new" ,async (req,res) =>{
     })
 
     expence_categ.save()
+
+    res.send({'msg': "expence_categoty created" , expence_categ})
 })
 
 manageRoute.get("/expence_categ" , async (req,res) =>{
@@ -265,6 +273,8 @@ manageRoute.post("/role/new" ,async (req,res) =>{
     })
 
     role.save()
+
+    res.send({'msg': "role created" , role})
 })
 
 manageRoute.get("/role" , async (req,res) =>{

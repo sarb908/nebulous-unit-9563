@@ -1,9 +1,41 @@
-import React from 'react'
-import { Box, Select,Heading, Stack ,InputGroup, Input, InputLeftElement, border} from '@chakra-ui/react'
+import React, { useEffect } from 'react'
+import { Box, Select,Heading, Stack ,InputGroup, Input, InputLeftElement, border, Button, Text} from '@chakra-ui/react'
 import {ArrowForwardIcon, SearchIcon} from '@chakra-ui/icons'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import { useState } from 'react'
 
 const Client = () => {
+
+  const [client , setClient] = useState([]);
+
+  const {id} = useParams()
+
+  console.log(id);
+
+  const getClients = async () =>{
+
+    await fetch("http://localhost:8080/manage/client" ,{
+      method : "GET" ,
+      headers :{
+        'Content-Type' :'application/json',
+        'token' : `bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzA3YjlkY2E5NzdkOTBmY2Y4MGVkMDEiLCJlbWFpbCI6Im1hc2FpQGdtYWlsLmNvbSIsImlhdCI6MTY2MTQ1MDc3Mn0.hSuzNiQn0XwvC19JEVzM_r1tHvO4G1C1qMZpsPIg5tI`
+      }
+    })
+    .then((res) => res.json())
+    .then((res) =>{
+      //console.log(res);
+
+      setClient(res)
+    })
+    .catch((err) =>{
+      console.log(err);
+    })
+  }
+
+  useEffect(() =>{
+    getClients()
+  },[])
+
 
   return (
   <Box style={{width:'50%', margin:'auto'}}>
@@ -47,9 +79,19 @@ const Client = () => {
       </InputGroup>
     </Box>
     <Box >
-      <Box border='1px solid' height='50px'></Box>
-      <Box border='1px solid' height='50px'></Box>
-      <Box border='1px solid' height='50px'></Box>
+      {client.map((item) =>(
+        <Box border='1px solid grey' borderLeft='none' borderRight='none' height='50px' display='flex' justifyContent='space-between' marginTop ='20px' bg='#efefef'>
+          <Box display='flex' gap='30px' padding='10px'>
+            <Link to={`${item._id}/edit`}>
+              <button style={{border:'1px solid grey',padding:'0px 8px',borderRadius:'5px',background:'white'}}>edit</button>
+            </Link>
+            <Text fontWeight='bold' fontSize='17px'>{item.client_name}</Text>
+          </Box>
+          <Box w='130px' h='30px' color='black' border='1px solid' textAlign='center' margin='10px' borderRadius='10px' background='white'>
+            <Link to='/contact/new'>+ Add contacts</Link>
+          </Box>
+        </Box>
+      ))}
     </Box>
   </Box>
   )
