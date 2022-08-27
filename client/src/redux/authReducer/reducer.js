@@ -1,8 +1,8 @@
 import * as types from "./actionTypes";
-const prevToken = localStorage.getItem("creds");
+const prevToken = JSON.parse(localStorage.getItem("creds"));
 const init = {
-  token: prevToken || "",
-  isAuth: !!prevToken || false,
+  token: prevToken?.token || "",
+  isAuth: !!prevToken?.token || false,
   img: prevToken?.img || "",
   error: false,
   isLoading: false,

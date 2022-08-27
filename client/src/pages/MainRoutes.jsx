@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import GoogleAuth from "./GoogleAuth";
 import Home from "./Home";
 import Login from "./Login";
 import SignUp from "./SignUp";
@@ -10,7 +11,8 @@ const MainRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/whyharvest" element={<WhyHarvest/>}/>
+      <Route path="/whyharvest" element={<WhyHarvest />} />
+      <Route path="/google/auth" element={<GoogleAuth />} />
     </Routes>
   );
 };
