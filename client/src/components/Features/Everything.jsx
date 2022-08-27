@@ -5,7 +5,7 @@ import { Link } from "react-scroll";
 
 const Everything = () => {
   return (
-    <Box bgColor="#fff8f1" border="1px solid #fff8f1" draggable>
+    <Box bgColor="#fff8f1" border="1px solid #fff8f1" >
       <Box marginTop={"100px"}>
         <SimpleGrid
           width={{ base: "100%", sm: "90%", md: "90%", lg: "100%", xl: "100%" }}

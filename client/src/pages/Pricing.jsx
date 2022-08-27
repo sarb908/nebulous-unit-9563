@@ -36,7 +36,7 @@ const Pricing = () => {
     }
   };
   return (
-    <Box bgColor="#fff8f1" border="1px solid #fff8f1" draggable>
+    <Box bgColor="#fff8f1" border="1px solid #fff8f1">
       <Box marginTop={"100px"}>
         <SimpleGrid
           width={{ base: "100%", sm: "90%", md: "90%", lg: "100%", xl: "100%" }}
@@ -450,6 +450,7 @@ const Pricing = () => {
         </SimpleGrid>
         <Box borderTop={"1px solid #fa5d00"} width={"100%"}></Box>
         <Tracktime />
+        <Box bgColor={"white"} height={"20px"}></Box>
         <Footer />
       </Box>
     </Box>

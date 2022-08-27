@@ -4,7 +4,7 @@ import { Box, Button, HStack, SimpleGrid, Text } from "@chakra-ui/react";
 const Part1 = () => {
   return (
     <>
-      <Box bgColor="#fff8f1" border="1px solid #fff8f1" draggable>
+      <Box bgColor="#fff8f1" border="1px solid #fff8f1">
         <HStack
           margin={"20px 0px 20px 0px"}
           alignItems="center"

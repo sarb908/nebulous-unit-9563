@@ -19,6 +19,7 @@ const Features = () => {
       <CustomerB />
       <Invoicing />
       <Tracktime />
+      <Box bgColor={"white"} height={"20px"}></Box>
       <Footer />
     </Box>
   );

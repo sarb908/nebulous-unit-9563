@@ -75,10 +75,10 @@ export default function Simple() {
                   <Tab fontSize={"2xl"} onClick={() => goto("/feature")}>
                     {Links[1]}
                   </Tab>
-                  <Tab fontSize={"2xl"} onClick={() => goto("")}>
+                  <Tab fontSize={"2xl"} onClick={() => goto("/customer")}>
                     {Links[2]}
                   </Tab>
-                  <Tab fontSize={"2xl"} onClick={() => goto("")}>
+                  <Tab fontSize={"2xl"} onClick={() => goto("/integration")}>
                     {Links[3]}
                   </Tab>
                   <Tab fontSize={"2xl"} onClick={() => goto("/price")}>
@@ -131,8 +131,8 @@ export default function Simple() {
 
               <RouterLink to="/whyharvest">{Links[0]}</RouterLink>
               <RouterLink to={"/feature"}>{Links[1]}</RouterLink>
-              <RouterLink to={""}>{Links[2]}</RouterLink>
-              <RouterLink to={""}>{Links[3]}</RouterLink>
+              <RouterLink to={"/customer"}>{Links[2]}</RouterLink>
+              <RouterLink to={"/integration"}>{Links[3]}</RouterLink>
               <RouterLink to={"/price"}>{Links[4]}</RouterLink>
             </Stack>
           </Box>

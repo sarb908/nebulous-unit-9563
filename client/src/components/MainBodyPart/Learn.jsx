@@ -11,7 +11,7 @@ import React from "react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 const Learn = () => {
   return (
-    <Box draggable>
+    <Box >
       <Divider
         backgroundColor={"red"}
         orientation="horizontal"

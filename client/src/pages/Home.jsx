@@ -18,6 +18,7 @@ const Home = () => {
       <Customer />
       <Learn />
       <Tracktime />
+      <Box bgColor={"white"} height={"20px"}></Box>
       <Footer />
     </Box>
   );

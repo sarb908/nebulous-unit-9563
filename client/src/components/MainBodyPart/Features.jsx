@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 const Features = () => {
   return (
-    <Box marginTop={"40px"} draggable>
+    <Box marginTop={"40px"}>
       <SimpleGrid
         textAlign={"left"}
         marginLeft={{
