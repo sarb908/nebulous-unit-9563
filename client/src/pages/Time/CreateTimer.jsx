@@ -38,10 +38,6 @@ function Create(props) {
 
   console.log(today);
 
-
-
-  
-
   const [date, setDate] = useState(today);
   const [day, setDay] = useState("Monday");
 
@@ -60,7 +56,7 @@ function Create(props) {
     };
 
     axios({
-      url: "http://localhost:8800/time/create",
+      url: "http://localhost:8080/time/create",
       method: "Post",
       data: payload,
     })
@@ -74,27 +70,28 @@ function Create(props) {
 
   return (
     <Box style={{ margin: "auto" }}>
-
       <IconButton
         onClick={onOpen}
-        
         style={{
           height: "70px",
           padding: "5px",
           width: "70px",
           backgroundColor: "rgb(24,132,51)",
           border: "none",
-          fontSize:"30px",
+          fontSize: "30px",
           borderRadius: "5px",
-          color:"white",
-          borderRadius:"10px",
-          marginTop:"-30px",
-          marginLeft:"20px"
+          color: "white",
+          borderRadius: "10px",
+          marginTop: "-30px",
+          marginLeft: "20px",
         }}
         aria-label="Add to friends"
         icon={<AddIcon />}
       />
-      <Text mt={"10px"} ml={"20px"}> Track time</Text>
+      <Text mt={"10px"} ml={"20px"}>
+        {" "}
+        Track time
+      </Text>
 
       <Modal
         initialFocusRef={initialRef}
@@ -118,16 +115,15 @@ function Create(props) {
             </FormControl>
 
             <FormControl mt={4}>
-            <Input
-                  name="title"
-                  onChange={(e) => setProjectManagement(e.target.value)}
-                  placeholder="Write Notes"
-                />
+              <Input
+                name="title"
+                onChange={(e) => setProjectManagement(e.target.value)}
+                placeholder="Write Notes"
+              />
             </FormControl>
             <Flex>
               {" "}
               <FormControl mt={4}>
- 
                 <Input
                   name="title"
                   onChange={(e) => setNotes(e.target.value)}
@@ -135,7 +131,6 @@ function Create(props) {
                 />
               </FormControl>
               <FormControl mt={4}>
-
                 <Input
                   name="title"
                   onChange={(e) => setTime(e.target.value)}
@@ -152,12 +147,10 @@ function Create(props) {
               size="sm"
               isAttached
               variant="outline"
- 
               color="white"
-              
               bg="green"
             >
-              Start Timer 
+              Start Timer
             </Button>
             <Button onClick={onClose}>Cancel</Button>
           </ModalFooter>

@@ -22,7 +22,7 @@ function Edit(props) {
 
     useEffect(() => {
         
-        fetch(`http://localhost:8800/time/${props._id}`)
+        fetch(`http://localhost:8080/time/${props._id}`)
         .then(res => res.json())
         .then(product => {
 
@@ -36,7 +36,7 @@ function Edit(props) {
 
     const submit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost:8800/time/${props._id}`, {
+        fetch(`http://localhost:8080/time/${props._id}`, {
             method: 'PUT',
             headers: {"Content-type": "application/json"},
             body: JSON.stringify({ task, time, projectManagement, notes })

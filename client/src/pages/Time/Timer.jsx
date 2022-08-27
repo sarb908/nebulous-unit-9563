@@ -17,12 +17,12 @@ import {
   Tr,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-import ProductEdit from "./editProduct";
-import Edit from "./Time/edit";
-import Create from "./Time/create";
-import Timecounter from "./Time/Timecounter";
-import InitialFocus from "./Time/one";
+
+
+import Edit from "../Time/EditTimer";
+import Create from "../Time/CreateTimer";
+import Timecounter from "../Time/TimeCounter";
+
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -31,88 +31,88 @@ function Products() {
 
   console.log(today);
   useEffect(() => {
-    fetch("http://localhost:8800/time")
+    fetch("http://localhost:8080/time")
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [products]);
 
   const del = (id) => {
-    fetch(`http://localhost:8800/time/${id}`, {
+    fetch(`http://localhost:8080/time/${id}`, {
       method: "DELETE",
     });
 
     setProducts(products.filter((p) => p._id !== id));
   };
 
-//   const Monday = () => {
-//     setValue(1);
-//   };
+  const Monday = () => {
+    setValue(1);
+  };
 
-//   const Tuesday = () => {
-//     setValue(2);
-//   };
+  const Tuesday = () => {
+    setValue(2);
+  };
 
-//   const Thursday = () => {
-//     setValue(3);
-//   };
-//   const Friday = () => {
-//     setValue(4);
-//   };
-//   const WednesDay = () => {
-//     setValue(7);
-//   };
-//   const Sunday = () => {
-//     setValue(5);
-//   };
-//   const Saturday = () => {
-//     setValue(6);
-//   };
+  const Thursday = () => {
+    setValue(3);
+  };
+  const Friday = () => {
+    setValue(4);
+  };
+  const WednesDay = () => {
+    setValue(7);
+  };
+  const Sunday = () => {
+    setValue(5);
+  };
+  const Saturday = () => {
+    setValue(6);
+  };
 
-//   console.log(value);
+  console.log(value);
 
-//   if (value === 1) {
-//     return (
-//       <>
-//         <h1>Hyy Dear </h1>
-//       </>
-//     );
-//   } else if (value === 2) {
-//     return (
-//       <>
-//         <h1>Hello 2</h1>
-//       </>
-//     );
-//   } else if (value === 3) {
-//     return (
-//       <>
-//         <h1>Hello 3</h1>
-//       </>
-//     );
-//   } else if (value === 4) {
-//     return (
-//       <>
-//         <h1>Hello 4</h1>
-//       </>
-//     );
-//   } else if (value === 5) {
-//     return (
-//       <>
-//         <h1>Hello 5</h1>
-//       </>
-//     );
-//   } else if (value === 6) {
-//     return (
-//       <>
-//         <h1>Hello 6</h1>
-//       </>
-//     );
-//   } else if (value === 7) {
-//     return (
-//       <>
-//         <h1>Hello 7</h1>
-//       </>
-//     );
-//   }
+  if (value === 1) {
+    return (
+      <>
+        <h1>Hyy Dear </h1>
+      </>
+    );
+  } else if (value === 2) {
+    return (
+      <>
+        <h1>Hello 2</h1>
+      </>
+    );
+  } else if (value === 3) {
+    return (
+      <>
+        <h1>Hello 3</h1>
+      </>
+    );
+  } else if (value === 4) {
+    return (
+      <>
+        <h1>Hello 4</h1>
+      </>
+    );
+  } else if (value === 5) {
+    return (
+      <>
+        <h1>Hello 5</h1>
+      </>
+    );
+  } else if (value === 6) {
+    return (
+      <>
+        <h1>Hello 6</h1>
+      </>
+    );
+  } else if (value === 7) {
+    return (
+      <>
+        <h1>Hello 7</h1>
+      </>
+    );
+  }
 
   return (
     <Box style={{ marginLeft: "10px" }}>
