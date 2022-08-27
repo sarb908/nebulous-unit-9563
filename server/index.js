@@ -2,11 +2,10 @@ const express = require("express");
 
 const connection = require("./config");
 const authRouter = require("./controllers/authController");
-const cors = require("cors")
-app.use(cors())
+
 
 const expensesRouter = require("./controllers/expenses.routes");
-const productRoutes = require("./middleware/timeroute");
+
 
 const app = express();
 app.use(express.json());
@@ -15,7 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/", authRouter);
-app.use("/time", productRoutes);
+
 
 
 
