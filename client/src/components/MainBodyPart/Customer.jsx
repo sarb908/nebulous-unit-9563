@@ -8,10 +8,11 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import style from "./customer.module.css";
-
+import { useNavigate } from "react-router-dom";
 const Customer = () => {
+  const navigate = useNavigate();
   return (
-    <Box >
+    <Box>
       <SimpleGrid
         margin={"auto"}
         width={{ base: "100%", sm: "90%", md: "90%", lg: "80%", xl: "80%" }}
@@ -146,6 +147,7 @@ const Customer = () => {
           color={"white"}
           bgColor={"black"}
           height="50px"
+          onClick={() => navigate("/customer")}
           fontSize="20px"
           _hover={{ bgColor: "red" }}
           marginBottom="70px"

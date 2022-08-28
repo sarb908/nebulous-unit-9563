@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { useToast } from "@chakra-ui/react";
 import style from "./../styles/auth.module.css";
 import * as types from "./../redux/authReducer/actionTypes";
@@ -19,6 +19,7 @@ const Button = styled.button`
   font-weight: 600;
 `;
 export default function Signin() {
+  const navigate = useNavigate();
   const toast = useToast();
   const dispatch = useDispatch();
   const [inp, setInp] = useState();
@@ -67,6 +68,7 @@ export default function Signin() {
           status: "success",
           isClosable: true,
         });
+        navigate("/manage/client");
       } else {
         toast({
           title: `Try Again`,
@@ -78,7 +80,7 @@ export default function Signin() {
   };
 
   if (isAuth) {
-    return <Navigate to="/" />;
+    return <Navigate to="/manage/client" />;
   }
 
   return (
