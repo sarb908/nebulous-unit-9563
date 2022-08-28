@@ -12,10 +12,10 @@ const passport = require("./googleauth");
 const expensesRouter = require("./controllers/expenses.routes");
 
 const manageRoute = require("./controllers/manageController");
-
+const { authentication } = require("./middlewares/auth");
 
 const app = express();
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 app.use(cors());
 app.get("/", (req, res) => {
@@ -51,7 +51,7 @@ app.use("/time", productRoutes);
 
 app.use("/", authRouter);
 
-app.use("/manage", manageRoute);
+app.use("/manage", authentication, manageRoute);
 
 app.listen(process.env.PORT || 8080, async () => {
   try {

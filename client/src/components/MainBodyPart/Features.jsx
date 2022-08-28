@@ -8,7 +8,9 @@ import {
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 const Features = () => {
+  const navigate = useNavigate();
   return (
     <Box marginTop={"40px"}>
       <SimpleGrid
@@ -109,6 +111,7 @@ const Features = () => {
       >
         <Button
           marginTop={"30px"}
+          onClick={() => navigate("/feature")}
           borderRadius={"18px"}
           color={"white"}
           bgColor={"black"}
