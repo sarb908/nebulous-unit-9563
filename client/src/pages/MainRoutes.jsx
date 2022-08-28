@@ -31,6 +31,8 @@ import Task from "../ManagePages/Task";
 import Expence_categ from "../ManagePages/Expence_categ";
 import Manage from "./Manage";
 import { Expenses } from "../components/Expenses/Expenses";
+import { Table } from "../components/Expenses/Table";
+import EditExpence from "../components/Expenses/EditExpence";
 const MainRoutes = () => {
   return (
     <Routes>
@@ -47,8 +49,9 @@ const MainRoutes = () => {
       <Route path="/whyharvest" element={<WhyHarvest />} />
 
       <Route path='/expenses'   element={<Expenses/>} />
-             <Route path='/expenses'   element={<Expenses/>} />
-             <Route path='/expenses/:id'   element={<Expenses/>} />
+             {/* <Route path='/expenses'   element={<Expenses/>} /> */}
+             {/* <Route path='/expenses'   element={<Expenses/>} /> */}
+             <Route path='expenses/:id'   element={<Expenses/>} />
 
       <Route path="/whyharvest" element={<WhyHarvest />} />
 
