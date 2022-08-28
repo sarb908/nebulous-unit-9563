@@ -3,11 +3,11 @@ const mongoose = require("mongoose");
 
 
 const ExpensesSchema = new mongoose.Schema({
-  projectname: { type: String, requried: true },
-  expensee: { type: String, requried: true },
+  projectname: { type: String },
+  expensee: { type: String},
   notes: { type: String },
   file: { type: String },
-  amount: { type: Number, requried: true },
+  amount: { type: Number},
   date: { type: String},
 });
 

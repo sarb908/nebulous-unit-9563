@@ -1,8 +1,9 @@
-import { Box, Button } from "@chakra-ui/react";
+ import { Box, Button } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import EditExpence from "./EditExpence";
 import { Expenses } from "./Expenses";
 import styles from "./Expenses.module.css";
 export const Table = () => {
@@ -26,39 +27,62 @@ export const Table = () => {
 
   useEffect(() =>{
     getExpence()
+    // setExpence()
   },[])
+  
+
+ const [Tab,SetTab]=useState(false)
+
   return (
 
     
-    <div>
-
-  
-
-
-      <Box className={styles.header}>
+    <div className={styles.testa}>
+           <Box className={styles.header}>
         <hr />
-        <h2>22-Aug 2020</h2>
+        <h2>28-Aug 2022</h2>
         <hr />
       </Box>
+      
   {/* //map */}
-     {expence.map((item) =>(
 
-     
+<Box> {Tab ? <EditExpence/>:null}</Box>
+
+     {expence.map((item,index) =>(
+
+     <Box key={index}>
       <Box className={styles.tables}>
         <Box className={styles.tab1}>
-          <Box> <h1>Sat, 27 Aug</h1>  </Box>
-          <Box> <b className={styles.tabe}>{item.projectname}</b></Box>
+          <Box> <h1>{item.date}</h1>  </Box>
+          <Box> <b className={styles.tabe}>{item.projectname} ( {item.expensee} )</b>
+          <br />
+     
+          
+          </Box>
         </Box>
         <Box className={styles.tab1}>
-          <Box> <h1>$200</h1>  </Box>
-          <Box> <Button className={styles.tabea} colorScheme='black' variant='outline'>
-            <Link to={`expences/${item._id}`}>Edit</Link>
-            </Button></Box>
+          <Box> <h1>${item.amount}</h1>  </Box>
+          <Box> <Button  className={styles.tabea} colorScheme='black' 
+          variant='outline' onClick={()=>SetTab(true)}>
+                    
+            
+          <Link to={`/expenses/${item._id}`} >Edit</Link>
+          {/* <Link to={`/expenses`} >Edit</Link> */}
+         
+          
+            </Button>  
+            </Box>
+       
         </Box>
 
-        
+      
       </Box>
+     
+     </Box>
+
+      
       ))}
+
+     
     </div>
   );
 };

@@ -24,7 +24,7 @@ export const Expenses = () => {
   const [notes,SetNotes]=useState("")
   const [date,Setdate]=useState("");
   const [amount ,Setamount ]=useState(0);
-  const [table,setTable]=useState(false)
+  const [table,setTable]=useState(true)
  
   // <Routes>
   //   <Route path="expences/:id/edit" element={<EditExpence />} />
@@ -51,6 +51,8 @@ export const Expenses = () => {
     .then((res) =>res.json())
     .then((res) =>{
       console.log(res);
+      window.location.reload(false);
+
     })
     .catch((err) =>console.log(err))
 
@@ -64,9 +66,7 @@ export const Expenses = () => {
   };
   return (
     <div>
-      {/* <Routes>
-        <Route path="expences/:id/edit" element={<EditExpence />} />
-      </Routes> */}
+     
       <Box w="100%" p={4}>
         <Box className={styles.main}>
           <h1>Expenses</h1>

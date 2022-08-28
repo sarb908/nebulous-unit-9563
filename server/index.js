@@ -49,6 +49,8 @@ app.get(
 
 app.use("/time", productRoutes);
 
+app.use("/expenses", expensesRouter)
+
 app.use("/", authRouter);
 
 app.use("/manage", manageRoute);
