@@ -66,10 +66,14 @@
     background-color: #c5d3da;
     height: 30px;
     padding: 2px 15px 2px 15px;
+    width: 92%;
+    margin: auto;
 }
 .tables{
     display: flex;
     /* border: 1px solid black; */
+    width: 92%;
+    margin: auto;
     border-bottom: 1px solid black;
     border-top: 1px solid black;
     justify-content: space-between;
